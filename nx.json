@@ -16,6 +16,12 @@
   },
   "nxCloudId": "6710904badb8e8b567aacc58",
   "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    },
     "@angular-devkit/build-angular:application": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -36,7 +42,10 @@
       "options": { "passWithNoTests": true },
       "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     },
-    "e2e-ci--**/*": { "dependsOn": ["^build"] }
+    "e2e-ci--**/*": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    }
   },
   "plugins": [
     { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
