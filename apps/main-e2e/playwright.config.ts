@@ -20,6 +20,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
+    headless: !!process.env['CI'], // Enable headless mode only in CI
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -27,7 +28,7 @@ export default defineConfig({
   webServer: {
     command: 'npx nx run main:serve',
     url: 'http://localhost:4200',
-    reuseExistingServer: !process.env['CI'],
+    reuseExistingServer: !process.env['CI'], // Reuse existing server if CI is not set
     cwd: workspaceRoot,
   },
   projects: [
