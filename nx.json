@@ -12,7 +12,7 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "nxCloudId": "6710904badb8e8b567aacc58",
   "targetDefaults": {
@@ -47,7 +47,13 @@
       "e2eTestRunner": "playwright",
       "linter": "eslint",
       "style": "scss",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "none",
+      "addTailwind": true
+    },
+    "@nx/angular:component": {
+      "style": "scss",
+      "standalone": true,
+      "skipTests": true
     }
   }
 }
